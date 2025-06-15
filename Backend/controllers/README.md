@@ -34,12 +34,44 @@ The endpoint expects a JSON payload with the following structure:
     
 
 
-<!-- ```json
-{
-    "fullname": {
-        "firstname": "John",
-        "lastname": "Doe"
-    },
-    "email": "john.doe@example.com",
-    "password": "securePass123"
-} -->
+## `/users/profile` Endpoint
+
+### description
+
+retrives the profile information of the currently authenticated user.
+
+### HTTP Method
+
+`GET`
+
+### Authentication
+
+requires a valid JWT token in the authorization header:
+`Authorization: Bearer <token>`
+
+### Example Response
+
+
+- `user` (object);
+  - `fullname` (object).
+   -   `firstname` (string) :  required,( minimum of 3 characters)
+    -   `lastname` (string) : required, (minimum of 3 characters)
+-   `email`: (string) A valid email address (string, required, minimum of 5 characters)
+
+
+
+
+
+## `/users/logout` Endpoint
+
+### Description
+
+Logout the current user and blacklist the token provided in 
+
+### HTTP Method
+
+`GET`
+
+### Authentication
+
+Requires a valid JWT token in the authorization header or cookie:
